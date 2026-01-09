@@ -20,7 +20,7 @@
 
 <label class="grid p-4">
 	<span>Search for gem</span>
-	<input type="text" bind:value={search} placeholder="e.g: Split arrow" class="border p-2" >
+	<input type="text" bind:value={search} placeholder="e.g: Split arrow" class="border rounded p-2 dark:border-white/25 border-black/25" >
 </label>
 <fieldset class="flex gap-4 px-4">
 	<legend class="border-b dark:border-white/25 border-black/25 dark:text-white/75 text-black/75 pb-2 mb-2">Filter by attributes:</legend>
