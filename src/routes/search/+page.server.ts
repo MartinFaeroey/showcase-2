@@ -23,6 +23,7 @@ async function getGems(): Promise<RepoeGemResponse> {
 const toGemData = (gems: RepoeGemResponse): GemData[] =>
 	Object.values(gems)
 		.filter((x) => x !== undefined)
+		.filter((x) => x.display_name !== undefined)
 		.map((x) => ({
 			name: x?.display_name ?? '',
 			tags: x?.tags ?? []
