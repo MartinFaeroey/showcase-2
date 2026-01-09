@@ -1,5 +1,6 @@
 <script lang="ts">
-	import type { GemData } from "$lib/types";
+	import { Tag } from "$lib/components";
+    import type { GemData } from "$lib/types";
 
     interface Props {
 		gems: GemData[];
@@ -20,7 +21,7 @@
 					<div class="">{gem.name}</div>
 					<div class="flex gap-1 text-sm">
 						{#each gem.tags as tag}
-							<div class="border px-1 rounded">{tag}</div>
+                            <Tag tag={tag} />
 						{/each}
 					</div>
 				</li>

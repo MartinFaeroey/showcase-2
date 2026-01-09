@@ -1,4 +1,4 @@
 import Checkbox from './Checkbox.svelte';
-import FieldSet from './FieldSet.svelte';
+import Tag from './Tag.svelte';
 
-export { Checkbox, FieldSet };
+export { Checkbox, Tag };
