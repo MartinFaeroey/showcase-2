@@ -11,11 +11,11 @@
 
 <div class="grid">
 	{#if gems.length === 0}
-	<div class="grid items-center p-4 w-full text-center">
+	<div class="grid items-center pt-12 pb-8 w-full text-center italic text-sm text-black/50 dark:text-white/50">
 		<p>No gems found.</p>
 	</div>
 	{:else}
-		<ul class="grid gap-2 p-2 p-4">
+		<ul class="grid gap-2 py-4">
 			{#each gems as gem}
 				<li class="flex gap-2">
 					<div class="">{gem.name}</div>

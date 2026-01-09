@@ -17,20 +17,18 @@
 	);
 </script>
 
-
-<label class="grid p-4">
-	<span>Search for gem</span>
-	<input type="text" bind:value={search} placeholder="e.g: Split arrow" class="border rounded p-2 dark:border-white/25 border-black/25" >
-</label>
-<fieldset class="flex gap-4 px-4">
-	<legend class="border-b dark:border-white/25 border-black/25 dark:text-white/75 text-black/75 pb-2 mb-2">Filter by attributes:</legend>
-	<Checkbox label="Intelligence" bind:checked={tagFilters.intelligence} />
-	<Checkbox label="Strength" bind:checked={tagFilters.strength} />
-	<Checkbox label="Dexterity" bind:checked={tagFilters.dexterity} />
-</fieldset>
-
+<div class="grid gap-4 p-4">
+	<aside>
+		<fieldset class="flex gap-4 px-4 pb-4 pt-1 border dark:border-white/25 border-black/25">
+			<legend class="dark:text-white/75 text-black/75 px-2">Filter by attributes:</legend>
+			<Checkbox label="Intelligence" bind:checked={tagFilters.intelligence} />
+			<Checkbox label="Strength" bind:checked={tagFilters.strength} />
+			<Checkbox label="Dexterity" bind:checked={tagFilters.dexterity} />
+		</fieldset>
+	</aside>
+	
 	<main class="grid border dark:border-white/25 border-black/25 rounded p-4">
 		<TextInput bind:value={search} label="Search for gem" placeholder="Split arrow" />
-<ListGems gems={gems} />
+		<ListGems gems={gems} />
 	</main>
 </div>
