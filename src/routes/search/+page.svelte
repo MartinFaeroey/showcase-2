@@ -2,7 +2,7 @@
 	import type { PageProps } from './$types';
 	import type { GemData } from '$lib/types';
 	import { defaultFilters, fuzzySearch, filterByTags, type Filters } from '$features/filtering';
-	import Checkbox from '$lib/components/Checkbox.svelte';
+	import { Checkbox, TextInput } from '$lib/components';
 	import ListGems from './ListGems.svelte';
 
 	let { data }: PageProps = $props();
@@ -29,4 +29,8 @@
 	<Checkbox label="Dexterity" bind:checked={tagFilters.dexterity} />
 </fieldset>
 
+	<main class="grid border dark:border-white/25 border-black/25 rounded p-4">
+		<TextInput bind:value={search} label="Search for gem" placeholder="Split arrow" />
 <ListGems gems={gems} />
+	</main>
+</div>
