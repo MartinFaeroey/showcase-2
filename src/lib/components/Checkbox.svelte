@@ -4,7 +4,7 @@
 		checked: boolean;
 		labelTextClasses?: string;
 	}
-	let { label, checked = $bindable(), labelTextClasses }: Props = $props();
+	let { label, checked = $bindable<boolean>(), labelTextClasses }: Props = $props();
 </script>
 
 <label class="flex justify-between gap-2 accent-sky-500">
