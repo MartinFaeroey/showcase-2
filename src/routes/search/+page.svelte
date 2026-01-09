@@ -23,6 +23,7 @@
 	<input type="text" bind:value={search} placeholder="e.g: Split arrow" class="border p-2" >
 </label>
 <fieldset class="flex gap-4 px-4">
+	<legend class="border-b dark:border-white/25 border-black/25 dark:text-white/75 text-black/75 pb-2 mb-2">Filter by attributes:</legend>
 	<Checkbox label="Intelligence" bind:checked={tagFilters.intelligence} />
 	<Checkbox label="Strength" bind:checked={tagFilters.strength} />
 	<Checkbox label="Dexterity" bind:checked={tagFilters.dexterity} />
