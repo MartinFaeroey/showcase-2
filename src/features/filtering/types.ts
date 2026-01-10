@@ -2,11 +2,11 @@ export interface Filters {
 	intelligence: boolean;
 	strength: boolean;
 	dexterity: boolean;
-	// physical: boolean;
-	// chaos: boolean;
-	// fire: boolean;
-	// cold: boolean;
-	// lightning: boolean;
+	physical: boolean;
+	chaos: boolean;
+	fire: boolean;
+	cold: boolean;
+	lightning: boolean;
 	// spell: boolean;
 	// attack: boolean;
 	// area: boolean;
