@@ -1,19 +1,20 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
-	import type { GemData } from '$lib/types';
-	import { defaultFilters, fuzzySearch, filterByTags, type Filters } from '$features/filtering';
+	import { defaultFilters, type Filters } from '$features/filtering';
 	import { Checkbox, TextInput } from '$lib/components';
+	import { useWorkerFiltering } from '$lib/hooks/useWorkerFiltering.svelte';
 	import ListGems from './ListGems.svelte';
 
-	let { data }: PageProps = $props();
+	const { data }: PageProps = $props();
 
-	let search = $state('')
-	let tagFilters = $state<Filters>(defaultFilters)
-	
-	let gems = $derived(
-		data.gems
-			.filter((gem: GemData) => fuzzySearch(gem.name, search))
-			.filter((gem: GemData) => filterByTags(gem.tags, tagFilters))
+	let search = $state('');
+	let tagFilters = $state<Filters>(defaultFilters);
+
+	// Use the worker filtering hook with getter functions
+	const filtering = useWorkerFiltering(
+		() => data.gems,
+		() => search,
+		() => tagFilters
 	);
 </script>
 
@@ -34,9 +35,24 @@
 			<Checkbox label="Chaos" bind:checked={tagFilters.chaos} />
 		</fieldset>
 	</aside>
-	
+
 	<main class="grid border dark:border-white/25 border-black/25 rounded p-4">
 		<TextInput bind:value={search} label="Search for gem" placeholder="Split arrow" />
-		<ListGems gems={gems} />
+
+		{#if filtering.error}
+			<div class="text-red-500 text-center py-4">
+				<p>Error: {filtering.error}</p>
+				<p class="text-sm mt-2">Falling back to basic filtering...</p>
+			</div>
+		{/if}
+
+		{#if filtering.isFiltering}
+			<div class="text-center py-4">
+				<div class="inline-block w-4 h-4 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+				<span class="ml-2">Filtering gems...</span>
+			</div>
+		{:else}
+			<ListGems gems={filtering.filteredGems} />
+		{/if}
 	</main>
 </div>
