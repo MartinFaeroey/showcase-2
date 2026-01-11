@@ -9,12 +9,13 @@
 
 	let search = $state('')
 	let tagFilters = $state<Filters>(defaultFilters)
-	
+
 	let gems = $derived(
 		data.gems
 			.filter((gem: GemData) => fuzzySearch(gem.name, search))
 			.filter((gem: GemData) => filterByTags(gem.tags, tagFilters))
 	);
+
 </script>
 
 <div class="grid gap-4 p-4">
@@ -34,7 +35,7 @@
 			<Checkbox label="Chaos" bind:checked={tagFilters.chaos} />
 		</fieldset>
 	</aside>
-	
+
 	<main class="grid border dark:border-white/25 border-black/25 rounded p-4">
 		<TextInput bind:value={search} label="Search for gem" placeholder="Split arrow" />
 		<ListGems gems={gems} />

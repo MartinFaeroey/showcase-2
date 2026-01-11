@@ -26,5 +26,6 @@ const toGemData = (gems: RepoeGemResponse): GemData[] =>
 		.filter((x) => x.display_name !== undefined)
 		.map((x) => ({
 			name: x?.display_name ?? '',
-			tags: x?.tags ?? []
+			tags: x?.tags ?? [],
+			url: x?.display_name.toLowerCase().split(' ').join('-') ?? ''
 		}));
