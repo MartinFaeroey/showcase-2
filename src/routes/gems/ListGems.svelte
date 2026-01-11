@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from "$app/paths";
 	import { Tag } from "$lib/components";
     import type { GemData } from "$lib/types";
 
@@ -17,8 +18,10 @@
 	{:else}
 		<ul class="grid gap-2 py-4">
 			{#each gems as gem}
+			    {@const url = resolve('/gems/[gem]', { gem: gem.url })}
+
 				<li class="flex gap-2">
-					<div class="">{gem.name}</div>
+					<a class="hover:underline cursor-pointer" href={url}>{gem.name}</a>
 					<div class="flex gap-1 text-sm">
 						{#each gem.tags as tag}
                             <Tag tag={tag} />
