@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
-	import type { GemData } from '$lib/types';
+	import type { GemListData } from '$lib/types';
 	import { defaultFilters, fuzzySearch, filterByTags, type Filters } from '$features/filtering';
 	import { Checkbox, TextInput } from '$lib/components';
 	import ListGems from './ListGems.svelte';
@@ -12,8 +12,8 @@
 
 	let gems = $derived(
 		data.gems
-			.filter((gem: GemData) => fuzzySearch(gem.name, search))
-			.filter((gem: GemData) => filterByTags(gem.tags, tagFilters))
+			.filter((gem: GemListData) => fuzzySearch(gem.name, search))
+			.filter((gem: GemListData) => filterByTags(gem.tags, tagFilters))
 	);
 
 </script>

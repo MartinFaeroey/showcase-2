@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { resolve } from "$app/paths";
 	import { Tag } from "$lib/components";
-    import type { GemData } from "$lib/types";
+    import type { GemListData } from "$lib/types";
 
     interface Props {
-		gems: GemData[];
+		gems: GemListData[];
 	}
 
 	let { gems }: Props = $props();

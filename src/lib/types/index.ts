@@ -1,8 +1,8 @@
-interface GemData {
+interface GemListData {
 	name: string;
 	tags: string[];
 	url: string;
 	color: 'r' | 'g' | 'b' | 'w';
 }
 
-export { type GemData };
+export { type GemListData };
